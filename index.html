@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smart Card Pro - Power BI Visual</title>
 
-    <!-- Favicon (آیکون بالای تب) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="favicon.png" />
     <link rel="shortcut icon" href="favicon.ico" />
@@ -13,6 +13,9 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
     <style>
         /* ===== Reset & Base ===== */
@@ -24,28 +27,53 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f0f2f7 0%, #d5dce6 100%);
+            background: #f0f2f7;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
-            direction: rtl;
+            padding: 24px;
         }
 
-        /* ===== Main Container ===== */
+        /* ===== Main Container - Microsoft Style ===== */
         .container {
-            max-width: 900px;
+            max-width: 1100px;
             width: 100%;
             background: #ffffff;
-            border-radius: 32px;
-            padding: 48px 44px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.10);
-            transition: transform 0.25s ease;
+            border-radius: 8px;
+            padding: 48px 56px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 1px solid #eaeef4;
         }
 
-        .container:hover {
-            transform: translateY(-4px);
+        /* ===== Language Toggle ===== */
+        .lang-toggle {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .lang-toggle button {
+            background: none;
+            border: 1px solid #d0d7e2;
+            padding: 4px 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .lang-toggle button.active {
+            background: #0078D4;
+            color: #fff;
+            border-color: #0078D4;
+        }
+
+        .lang-toggle button:hover:not(.active) {
+            background: #f0f2f7;
         }
 
         /* ===== Badge ===== */
@@ -56,9 +84,9 @@
             font-size: 11px;
             font-weight: 700;
             letter-spacing: 0.5px;
-            padding: 5px 20px;
-            border-radius: 30px;
-            margin-bottom: 16px;
+            padding: 4px 18px;
+            border-radius: 4px;
+            margin-bottom: 12px;
             text-transform: uppercase;
         }
 
@@ -70,24 +98,24 @@
         .header {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
             margin-bottom: 2px;
             flex-wrap: wrap;
         }
 
         .header h1 {
-            font-size: 36px;
+            font-size: 34px;
             font-weight: 800;
             color: #1a1a2e;
             letter-spacing: -0.3px;
         }
 
         .header .icon-big {
-            font-size: 40px;
+            font-size: 38px;
         }
 
         .subtitle {
-            font-size: 17px;
+            font-size: 16px;
             color: #555;
             font-weight: 400;
             margin-bottom: 2px;
@@ -96,119 +124,117 @@
         .version {
             font-size: 13px;
             color: #999;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         /* ===== Images Section ===== */
         .images-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 16px;
             margin: 20px 0 24px;
         }
 
         .image-card {
             background: #f8faff;
-            border-radius: 16px;
+            border-radius: 6px;
             padding: 12px;
             border: 1px solid #e8edf5;
             text-align: center;
-            transition: transform 0.2s;
+            transition: box-shadow 0.2s;
         }
 
         .image-card:hover {
-            transform: scale(1.02);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
         .image-card img {
             width: 100%;
-            max-height: 150px;
+            max-height: 120px;
             object-fit: contain;
-            border-radius: 10px;
+            border-radius: 4px;
             background: #fff;
         }
 
         .image-card .img-label {
-            font-size: 12px;
-            color: #777;
-            margin-top: 8px;
+            font-size: 11px;
+            color: #888;
+            margin-top: 6px;
             font-weight: 500;
         }
 
         /* ===== Features Grid ===== */
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 12px;
-            margin: 24px 0 28px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 10px;
+            margin: 20px 0 24px;
         }
 
         .feature-item {
-            background: #f4f7fb;
-            padding: 16px 12px;
-            border-radius: 14px;
+            background: #f8f9fc;
+            padding: 14px 12px;
+            border-radius: 6px;
             text-align: center;
             font-weight: 500;
             font-size: 13px;
             color: #1a1a2e;
+            border-left: 3px solid #0078D4;
             transition: background 0.2s;
-            border-right: 3px solid #0078D4;
         }
 
         .feature-item:hover {
-            background: #e8ecf5;
+            background: #eef2f7;
         }
 
         .feature-item i {
             display: block;
-            font-size: 24px;
-            margin-bottom: 6px;
+            font-size: 22px;
+            margin-bottom: 4px;
             color: #0078D4;
         }
 
         /* ===== Download Area ===== */
         .download-area {
-            background: #f5f9ff;
-            border-radius: 18px;
-            padding: 26px 20px;
-            margin: 24px 0 20px;
-            border: 1px dashed #c5d4e8;
+            background: #f8faff;
+            border-radius: 6px;
+            padding: 24px 20px;
+            margin: 20px 0 18px;
+            border: 1px solid #e0e8f0;
             text-align: center;
         }
 
         .btn-download {
             display: inline-flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
             background: #0078D4;
             color: #fff;
-            padding: 16px 44px;
-            border-radius: 60px;
-            font-size: 19px;
+            padding: 14px 40px;
+            border-radius: 4px;
+            font-size: 17px;
             font-weight: 700;
             text-decoration: none;
-            box-shadow: 0 8px 28px rgba(0, 120, 212, 0.28);
-            transition: background 0.25s, transform 0.2s;
+            transition: background 0.25s;
             border: none;
             cursor: pointer;
         }
 
         .btn-download:hover {
             background: #005a9e;
-            transform: scale(1.02);
         }
 
         .btn-download i {
-            font-size: 24px;
+            font-size: 20px;
         }
 
         .file-name {
             font-size: 12px;
             color: #666;
             background: #fff;
-            padding: 8px 16px;
-            border-radius: 10px;
-            margin-top: 12px;
+            padding: 6px 14px;
+            border-radius: 4px;
+            margin-top: 10px;
             display: inline-block;
             border: 1px solid #e6edf5;
             word-break: break-all;
@@ -217,23 +243,23 @@
         }
 
         .file-name i {
-            margin-left: 8px;
+            margin-left: 6px;
             color: #0078D4;
         }
 
         /* ===== Info Grid (Data Roles) ===== */
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 14px;
-            margin: 24px 0 10px;
+            margin: 20px 0 10px;
         }
 
         .info-card {
             background: #f9fafc;
             padding: 14px 16px;
-            border-radius: 14px;
-            border-right: 4px solid #0078D4;
+            border-radius: 6px;
+            border-left: 4px solid #0078D4;
         }
 
         .info-card .label {
@@ -248,7 +274,7 @@
             font-size: 15px;
             font-weight: 700;
             color: #1a1a2e;
-            margin-top: 3px;
+            margin-top: 2px;
         }
 
         .info-card .desc {
@@ -257,29 +283,29 @@
             margin-top: 2px;
         }
 
-        .info-card .optional {
-            font-size: 11px;
-            color: #0078D4;
-            font-weight: 600;
-        }
-
         .info-card .required {
             font-size: 11px;
             color: #e67e22;
             font-weight: 600;
         }
 
+        .info-card .optional {
+            font-size: 11px;
+            color: #0078D4;
+            font-weight: 600;
+        }
+
         /* ===== Footer ===== */
         .footer {
-            margin-top: 28px;
-            padding-top: 18px;
+            margin-top: 24px;
+            padding-top: 16px;
             border-top: 1px solid #eaeef4;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 12px;
-            font-size: 14px;
+            font-size: 13px;
             color: #777;
         }
 
@@ -287,7 +313,6 @@
             color: #0078D4;
             text-decoration: none;
             font-weight: 500;
-            margin: 0 4px;
         }
 
         .footer a:hover {
@@ -302,14 +327,14 @@
         .footer .developer-info {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
             flex-wrap: wrap;
         }
 
         /* ===== Credit ===== */
         .credit {
             text-align: center;
-            margin-top: 14px;
+            margin-top: 12px;
             font-size: 12px;
             color: #bbb;
         }
@@ -318,20 +343,53 @@
             color: #e74c3c;
         }
 
+        /* ===== RTL (Persian) ===== */
+        .rtl {
+            direction: rtl;
+            text-align: right;
+        }
+
+        .rtl .feature-item {
+            border-left: none;
+            border-right: 3px solid #0078D4;
+        }
+
+        .rtl .info-card {
+            border-left: none;
+            border-right: 4px solid #0078D4;
+        }
+
+        .rtl .badge i {
+            margin-left: 6px;
+            margin-right: 0;
+        }
+
         /* ===== Responsive ===== */
+        @media (max-width: 900px) {
+            .container {
+                padding: 32px 24px;
+            }
+            .images-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
         @media (max-width: 640px) {
             .container {
-                padding: 28px 16px;
+                padding: 24px 16px;
             }
             .header h1 {
                 font-size: 26px;
             }
             .header .icon-big {
-                font-size: 30px;
+                font-size: 28px;
             }
             .btn-download {
-                padding: 14px 24px;
-                font-size: 16px;
+                padding: 12px 24px;
+                font-size: 15px;
             }
             .features {
                 grid-template-columns: repeat(2, 1fr);
@@ -349,103 +407,77 @@
             .images-section {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .lang-toggle {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="container" id="app">
+
+        <!-- ===== Language Toggle ===== -->
+        <div class="lang-toggle">
+            <button id="langEn" class="active" onclick="setLanguage('en')">English</button>
+            <button id="langFa" onclick="setLanguage('fa')">فارسی</button>
+        </div>
 
         <!-- ===== Badge ===== -->
         <div class="badge">
-            <i class="fas fa-check-circle"></i> POWER BI CUSTOM VISUAL
+            <i class="fas fa-check-circle"></i>
+            <span id="badgeText">POWER BI CUSTOM VISUAL</span>
         </div>
 
         <!-- ===== Header ===== -->
         <div class="header">
             <span class="icon-big">📊</span>
-            <h1>Smart Card Pro</h1>
+            <h1 id="title">Smart Card Pro</h1>
         </div>
-        <p class="subtitle">کارت هوشمند حرفه‌ای برای Power BI</p>
-        <p class="version">نسخه 1.0.0.0</p>
+        <p class="subtitle" id="subtitle">Professional Smart Card for Power BI</p>
+        <p class="version" id="version">Version 1.0.0.0</p>
 
         <!-- ===== Images Section ===== -->
         <div class="images-section">
             <div class="image-card">
-                <img src="screenshot1.png" alt="نمایش کارت" onerror="this.style.display='none'">
-                <div class="img-label">📸 نمای کارت</div>
+                <img src="screenshot1.png" alt="Card View" onerror="this.style.display='none'">
+                <div class="img-label" id="imgLabel1">📸 Card View</div>
             </div>
             <div class="image-card">
-                <img src="screenshot2.png" alt="تنظیمات" onerror="this.style.display='none'">
-                <div class="img-label">⚙️ تنظیمات پیشرفته</div>
+                <img src="screenshot2.png" alt="Settings" onerror="this.style.display='none'">
+                <div class="img-label" id="imgLabel2">⚙️ Settings</div>
             </div>
             <div class="image-card">
-                <img src="screenshot3.png" alt="نمونه استفاده" onerror="this.style.display='none'">
-                <div class="img-label">📊 نمونه استفاده</div>
+                <img src="screenshot3.png" alt="Sample Usage" onerror="this.style.display='none'">
+                <div class="img-label" id="imgLabel3">📊 Sample Usage</div>
             </div>
             <div class="image-card">
-                <img src="icon.png" alt="آیکون" onerror="this.style.display='none'" style="max-height:80px;">
-                <div class="img-label">🎯 آیکون ویژوال</div>
+                <img src="icon.png" alt="Icon" onerror="this.style.display='none'" style="max-height:80px;">
+                <div class="img-label" id="imgLabel4">🎯 Visual Icon</div>
             </div>
         </div>
 
         <!-- ===== Features ===== -->
-        <div class="features">
-            <div class="feature-item">
-                <i class="fas fa-bolt"></i>
-                فقط یک Measure
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-arrows-left-right"></i>
-                تبدیل هوشمند واحد
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-chart-line"></i>
-                نمایش روند (📈📉➡️)
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-language"></i>
-                فارسی / انگلیسی
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-palette"></i>
-                شخصی‌سازی کامل
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-font"></i>
-                Prefix / Suffix
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-icons"></i>
-                آیکون قابل تغییر
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-arrow-right-arrow-left"></i>
-                مقایسه مقادیر
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-sort-numeric-up-alt"></i>
-                نمایش اعداد منفی
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-th-large"></i>
-                جانمایی اجزای کارد
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-sort-numeric-down-alt"></i>
-                اعداد فارسی
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-tachometer-alt"></i>
-                عملکرد بالا (20ms)
-            </div>
+        <div class="features" id="featuresContainer">
+            <div class="feature-item"><i class="fas fa-arrows-left-right"></i><span>Smart Unit Conversion</span></div>
+            <div class="feature-item"><i class="fas fa-chart-line"></i><span>Trend Indicator (📈📉➡️)</span></div>
+            <div class="feature-item"><i class="fas fa-language"></i><span>Persian / English</span></div>
+            <div class="feature-item"><i class="fas fa-palette"></i><span>Full Customization</span></div>
+            <div class="feature-item"><i class="fas fa-font"></i><span>Prefix / Suffix</span></div>
+            <div class="feature-item"><i class="fas fa-icons"></i><span>Customizable Icon</span></div>
+            <div class="feature-item"><i class="fas fa-arrow-right-arrow-left"></i><span>Value Comparison</span></div>
+            <div class="feature-item"><i class="fas fa-sort-numeric-up-alt"></i><span>Negative Number Display</span></div>
+            <div class="feature-item"><i class="fas fa-th-large"></i><span>Card Layout</span></div>
+            <div class="feature-item"><i class="fas fa-sort-numeric-down-alt"></i><span>Persian Numbers</span></div>
+            <div class="feature-item"><i class="fas fa-edit"></i><span>Conditional Formatting</span></div>
+            <div class="feature-item"><i class="fas fa-gem"></i><span>AppSource Ready</span></div>
         </div>
 
         <!-- ===== Download ===== -->
         <div class="download-area">
             <a href="persianSmartCardPro9F3A7C2E4B1D4E8FA6B2_VISUAL.1.0.0.0.pbiviz" class="btn-download" download>
                 <i class="fas fa-download"></i>
-                دانلود فایل .pbiviz
+                <span id="downloadBtn">Download .pbiviz</span>
             </a>
             <div class="file-name">
                 <i class="far fa-file"></i>
@@ -454,24 +486,24 @@
         </div>
 
         <!-- ===== Data Roles ===== -->
-        <div class="info-grid">
+        <div class="info-grid" id="infoGrid">
             <div class="info-card">
-                <div class="label">نقش داده</div>
+                <div class="label">Data Role</div>
                 <div class="value">Value</div>
-                <div class="desc">مقدار اصلی</div>
-                <div class="required"><i class="fas fa-star"></i> اجباری</div>
+                <div class="desc">Main value</div>
+                <div class="required"><i class="fas fa-star"></i> Required</div>
             </div>
             <div class="info-card">
-                <div class="label">نقش داده</div>
+                <div class="label">Data Role</div>
                 <div class="value">Comparison</div>
-                <div class="desc">مقدار مقایسه</div>
-                <div class="optional"><i class="fas fa-circle"></i> اختیاری</div>
+                <div class="desc">Comparison value</div>
+                <div class="optional"><i class="fas fa-circle"></i> Optional</div>
             </div>
             <div class="info-card">
-                <div class="label">نقش داده</div>
+                <div class="label">Data Role</div>
                 <div class="value">Tooltip</div>
-                <div class="desc">اطلاعات اضافی</div>
-                <div class="optional"><i class="fas fa-circle"></i> اختیاری</div>
+                <div class="desc">Additional info</div>
+                <div class="optional"><i class="fas fa-circle"></i> Optional</div>
             </div>
         </div>
 
@@ -486,9 +518,13 @@
                     <i class="fas fa-envelope"></i>
                     <a href="mailto:mohamadfekri@gmail.com">mohamadfekri@gmail.com</a>
                 </span>
+                <span>
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/mohamadfekri/PersianSmartCardPro" target="_blank">GitHub</a>
+                </span>
             </div>
             <div class="socials">
-                <a href="https://github.com/mohamadfekri/PersianSmartCardPro" target="_blank" title="GitHub Repository">
+                <a href="https://github.com/mohamadfekri" target="_blank" title="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
                 <a href="https://www.linkedin.com/in/mohamadfekri" target="_blank" title="LinkedIn">
@@ -503,11 +539,155 @@
         <!-- ===== Credit ===== -->
         <div class="credit">
             <i class="fas fa-heart heart"></i>
-            ساخته شده با ❤️ برای سرزمین پارسی Power BI
+            <span id="creditText">Built with ❤️ for the Power BI Community</span>
             <i class="fas fa-heart heart"></i>
         </div>
 
     </div>
+
+    <script>
+        // ===== Language Data =====
+        const langData = {
+            en: {
+                badge: 'POWER BI CUSTOM VISUAL',
+                title: 'Smart Card Pro',
+                subtitle: 'Professional Smart Card for Power BI',
+                version: 'Version 1.0.0.0',
+                imgLabel1: '📸 Card View',
+                imgLabel2: '⚙️ Settings',
+                imgLabel3: '📊 Sample Usage',
+                imgLabel4: '🎯 Visual Icon',
+                features: [
+                    'Smart Unit Conversion',
+                    'Trend Indicator (📈📉➡️)',
+                    'Persian / English',
+                    'Full Customization',
+                    'Prefix / Suffix',
+                    'Customizable Icon',
+                    'Value Comparison',
+                    'Negative Number Display',
+                    'Card Layout',
+                    'Persian Numbers',
+                    'Conditional Formatting',
+                    'AppSource Ready'
+                ],
+                downloadBtn: 'Download .pbiviz',
+                infoGrid: [
+                    { label: 'Data Role', value: 'Value', desc: 'Main value', type: 'required' },
+                    { label: 'Data Role', value: 'Comparison', desc: 'Comparison value', type: 'optional' },
+                    { label: 'Data Role', value: 'Tooltip', desc: 'Additional info', type: 'optional' }
+                ],
+                credit: 'Built with ❤️ for the Power BI Community'
+            },
+            fa: {
+                badge: 'ویژوال سفارشی پاور بی آی',
+                title: 'اسمارت کارت پرو',
+                subtitle: 'کارت هوشمند حرفه‌ای برای پاور بی آی',
+                version: 'نسخه 1.0.0.0',
+                imgLabel1: '📸 نمای کارت',
+                imgLabel2: '⚙️ تنظیمات',
+                imgLabel3: '📊 نمونه استفاده',
+                imgLabel4: '🎯 آیکون ویژوال',
+                features: [
+                    'تبدیل هوشمند واحد',
+                    'نمایش روند (📈📉➡️)',
+                    'فارسی / انگلیسی',
+                    'شخصی‌سازی کامل',
+                    'پیشوند / پسوند',
+                    'آیکون قابل تغییر',
+                    'مقایسه مقادیر',
+                    'نمایش اعداد منفی',
+                    'جانمایی کارد',
+                    'اعداد فارسی',
+                    'قالب‌بندی شرطی',
+                    'آماده برای AppSource'
+                ],
+                downloadBtn: 'دانلود فایل .pbiviz',
+                infoGrid: [
+                    { label: 'نقش داده', value: 'مقدار اصلی', desc: 'مقدار اصلی', type: 'required' },
+                    { label: 'نقش داده', value: 'مقدار مقایسه', desc: 'مقدار برای مقایسه', type: 'optional' },
+                    { label: 'نقش داده', value: 'راهنما', desc: 'اطلاعات اضافی', type: 'optional' }
+                ],
+                credit: 'ساخته شده با ❤️ برای جامعه پاور بی آی'
+            }
+        };
+
+        let currentLang = 'en';
+
+        // ===== Set Language =====
+        function setLanguage(lang) {
+            currentLang = lang;
+            const data = langData[lang];
+
+            // Update badge
+            document.getElementById('badgeText').textContent = data.badge;
+
+            // Update header
+            document.getElementById('title').textContent = data.title;
+            document.getElementById('subtitle').textContent = data.subtitle;
+            document.getElementById('version').textContent = data.version;
+
+            // Update image labels
+            document.getElementById('imgLabel1').textContent = data.imgLabel1;
+            document.getElementById('imgLabel2').textContent = data.imgLabel2;
+            document.getElementById('imgLabel3').textContent = data.imgLabel3;
+            document.getElementById('imgLabel4').textContent = data.imgLabel4;
+
+            // Update features
+            const featureItems = document.querySelectorAll('#featuresContainer .feature-item span');
+            data.features.forEach((text, index) => {
+                if (featureItems[index]) {
+                    featureItems[index].textContent = text;
+                }
+            });
+
+            // Update download button
+            document.getElementById('downloadBtn').textContent = data.downloadBtn;
+
+            // Update info grid
+            const infoCards = document.querySelectorAll('#infoGrid .info-card');
+            data.infoGrid.forEach((item, index) => {
+                if (infoCards[index]) {
+                    const card = infoCards[index];
+                    card.querySelector('.label').textContent = item.label;
+                    card.querySelector('.value').textContent = item.value;
+                    card.querySelector('.desc').textContent = item.desc;
+                    const badgeEl = card.querySelector('.required, .optional');
+                    if (badgeEl) {
+                        if (item.type === 'required') {
+                            badgeEl.className = 'required';
+                            badgeEl.innerHTML = '<i class="fas fa-star"></i> ' + (lang === 'en' ? 'Required' : 'اجباری');
+                        } else {
+                            badgeEl.className = 'optional';
+                            badgeEl.innerHTML = '<i class="fas fa-circle"></i> ' + (lang === 'en' ? 'Optional' : 'اختیاری');
+                        }
+                    }
+                }
+            });
+
+            // Update credit
+            document.getElementById('creditText').textContent = data.credit;
+
+            // Update language toggle buttons
+            document.getElementById('langEn').className = lang === 'en' ? 'active' : '';
+            document.getElementById('langFa').className = lang === 'fa' ? 'active' : '';
+
+            // Update direction
+            const container = document.getElementById('app');
+            if (lang === 'fa') {
+                container.classList.add('rtl');
+                document.documentElement.lang = 'fa';
+                document.documentElement.dir = 'rtl';
+            } else {
+                container.classList.remove('rtl');
+                document.documentElement.lang = 'en';
+                document.documentElement.dir = 'ltr';
+            }
+        }
+
+        // ===== Set initial language (English by default) =====
+        setLanguage('en');
+    </script>
 
 </body>
 </html>
