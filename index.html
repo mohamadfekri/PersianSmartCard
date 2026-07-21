@@ -6,11 +6,11 @@
     <title>Smart Card Pro - Power BI Visual</title>
 
     <!-- ===== Favicon (آیکون بالای تب) ===== -->
-    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon.png" />
-    <link rel="shortcut icon" href="./favicon.ico" />
-    <link rel="apple-touch-icon" href="./favicon.png" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="favicon.png" />
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -296,24 +296,6 @@
             font-weight: 600;
         }
 
-        /* ===== AppSource Badge ===== */
-        .appsource-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #107c10;
-            color: #fff;
-            padding: 6px 16px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-top: 8px;
-        }
-
-        .appsource-badge i {
-            font-size: 16px;
-        }
-
         /* ===== Footer ===== */
         .footer {
             margin-top: 24px;
@@ -456,12 +438,6 @@
         <p class="subtitle" id="subtitle">Professional Smart Card for Power BI</p>
         <p class="version" id="version">Version 1.0.0.0</p>
 
-        <!-- ===== AppSource Badge ===== -->
-        <div class="appsource-badge">
-            <i class="fas fa-check-circle"></i>
-            <span id="appsourceText">Ready for Microsoft AppSource</span>
-        </div>
-
         <!-- ===== Images Section ===== -->
         <div class="images-section">
             <div class="image-card">
@@ -495,7 +471,6 @@
             <div class="feature-item"><i class="fas fa-th-large"></i><span>Card Layout</span></div>
             <div class="feature-item"><i class="fas fa-sort-numeric-down-alt"></i><span>Persian Numbers</span></div>
             <div class="feature-item"><i class="fas fa-edit"></i><span>Conditional Formatting</span></div>
-            <div class="feature-item"><i class="fas fa-check-double"></i><span>AppSource Certified</span></div>
         </div>
 
         <!-- ===== Download ===== -->
@@ -578,7 +553,6 @@
                 title: 'Smart Card Pro',
                 subtitle: 'Professional Smart Card for Power BI',
                 version: 'Version 1.0.0.0',
-                appsource: 'Ready for Microsoft AppSource',
                 imgLabel1: '📸 Card View',
                 imgLabel2: '⚙️ Settings',
                 imgLabel3: '📊 Sample Usage',
@@ -594,8 +568,7 @@
                     'Negative Number Display',
                     'Card Layout',
                     'Persian Numbers',
-                    'Conditional Formatting',
-                    'AppSource Certified'
+                    'Conditional Formatting'
                 ],
                 downloadBtn: 'Download .pbiviz',
                 infoGrid: [
@@ -610,7 +583,6 @@
                 title: 'اسمارت کارت پرو',
                 subtitle: 'کارت هوشمند حرفه‌ای برای پاور بی آی',
                 version: 'نسخه 1.0.0.0',
-                appsource: 'آماده برای انتشار در Microsoft AppSource',
                 imgLabel1: '📸 نمای کارت',
                 imgLabel2: '⚙️ تنظیمات',
                 imgLabel3: '📊 نمونه استفاده',
@@ -626,8 +598,7 @@
                     'نمایش اعداد منفی',
                     'جانمایی کارد',
                     'اعداد فارسی',
-                    'قالب‌بندی شرطی',
-                    'گواهی AppSource'
+                    'قالب‌بندی شرطی'
                 ],
                 downloadBtn: 'دانلود فایل .pbiviz',
                 infoGrid: [
@@ -646,24 +617,16 @@
             currentLang = lang;
             const data = langData[lang];
 
-            // Update badge
             document.getElementById('badgeText').textContent = data.badge;
-
-            // Update header
             document.getElementById('title').textContent = data.title;
             document.getElementById('subtitle').textContent = data.subtitle;
             document.getElementById('version').textContent = data.version;
 
-            // Update AppSource badge
-            document.getElementById('appsourceText').textContent = data.appsource;
-
-            // Update image labels
             document.getElementById('imgLabel1').textContent = data.imgLabel1;
             document.getElementById('imgLabel2').textContent = data.imgLabel2;
             document.getElementById('imgLabel3').textContent = data.imgLabel3;
             document.getElementById('imgLabel4').textContent = data.imgLabel4;
 
-            // Update features
             const featureItems = document.querySelectorAll('#featuresContainer .feature-item span');
             data.features.forEach((text, index) => {
                 if (featureItems[index]) {
@@ -671,10 +634,8 @@
                 }
             });
 
-            // Update download button
             document.getElementById('downloadBtn').textContent = data.downloadBtn;
 
-            // Update info grid
             const infoCards = document.querySelectorAll('#infoGrid .info-card');
             data.infoGrid.forEach((item, index) => {
                 if (infoCards[index]) {
@@ -695,14 +656,11 @@
                 }
             });
 
-            // Update credit
             document.getElementById('creditText').textContent = data.credit;
 
-            // Update language toggle buttons
             document.getElementById('langEn').className = lang === 'en' ? 'active' : '';
             document.getElementById('langFa').className = lang === 'fa' ? 'active' : '';
 
-            // Update direction
             const container = document.getElementById('app');
             if (lang === 'fa') {
                 container.classList.add('rtl');
