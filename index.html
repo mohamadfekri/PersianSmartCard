@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smart Card Pro - Power BI Visual</title>
 
-    <!-- Favicon -->
+    <!-- Favicon (آیکون بالای تب) -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="favicon.png" />
     <link rel="shortcut icon" href="favicon.ico" />
@@ -35,7 +35,7 @@
 
         /* ===== Main Container ===== */
         .container {
-            max-width: 820px;
+            max-width: 900px;
             width: 100%;
             background: #ffffff;
             border-radius: 32px;
@@ -99,23 +99,60 @@
             margin-bottom: 24px;
         }
 
+        /* ===== Images Section ===== */
+        .images-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 20px 0 24px;
+        }
+
+        .image-card {
+            background: #f8faff;
+            border-radius: 16px;
+            padding: 12px;
+            border: 1px solid #e8edf5;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .image-card:hover {
+            transform: scale(1.02);
+        }
+
+        .image-card img {
+            width: 100%;
+            max-height: 150px;
+            object-fit: contain;
+            border-radius: 10px;
+            background: #fff;
+        }
+
+        .image-card .img-label {
+            font-size: 12px;
+            color: #777;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
         /* ===== Features Grid ===== */
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 12px;
             margin: 24px 0 28px;
         }
 
         .feature-item {
             background: #f4f7fb;
-            padding: 16px 10px;
+            padding: 16px 12px;
             border-radius: 14px;
             text-align: center;
             font-weight: 500;
             font-size: 13px;
             color: #1a1a2e;
             transition: background 0.2s;
+            border-right: 3px solid #0078D4;
         }
 
         .feature-item:hover {
@@ -269,25 +306,12 @@
             flex-wrap: wrap;
         }
 
-        .footer .developer-info .phone {
-            color: #999;
-            font-size: 13px;
-        }
-
-        .footer .developer-info .phone i {
-            margin-left: 4px;
-        }
-
         /* ===== Credit ===== */
         .credit {
             text-align: center;
             margin-top: 14px;
             font-size: 12px;
             color: #bbb;
-        }
-
-        .credit i {
-            margin: 0 4px;
         }
 
         .credit .heart {
@@ -322,6 +346,9 @@
             .info-grid {
                 grid-template-columns: 1fr;
             }
+            .images-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
@@ -339,8 +366,28 @@
             <span class="icon-big">📊</span>
             <h1>Smart Card Pro</h1>
         </div>
-        <p class="subtitle">کارت هوشمند برای Power BI</p>
+        <p class="subtitle">کارت هوشمند حرفه‌ای برای Power BI</p>
         <p class="version">نسخه 1.0.0.0</p>
+
+        <!-- ===== Images Section ===== -->
+        <div class="images-section">
+            <div class="image-card">
+                <img src="screenshot1.png" alt="نمایش کارت" onerror="this.style.display='none'">
+                <div class="img-label">📸 نمای کارت</div>
+            </div>
+            <div class="image-card">
+                <img src="screenshot2.png" alt="تنظیمات" onerror="this.style.display='none'">
+                <div class="img-label">⚙️ تنظیمات پیشرفته</div>
+            </div>
+            <div class="image-card">
+                <img src="screenshot3.png" alt="نمونه استفاده" onerror="this.style.display='none'">
+                <div class="img-label">📊 نمونه استفاده</div>
+            </div>
+            <div class="image-card">
+                <img src="icon.png" alt="آیکون" onerror="this.style.display='none'" style="max-height:80px;">
+                <div class="img-label">🎯 آیکون ویژوال</div>
+            </div>
+        </div>
 
         <!-- ===== Features ===== -->
         <div class="features">
@@ -365,12 +412,32 @@
                 شخصی‌سازی کامل
             </div>
             <div class="feature-item">
-                <i class="fas fa-rocket"></i>
-                عملکرد بالا (&lt;20ms)
+                <i class="fas fa-font"></i>
+                Prefix / Suffix
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-icons"></i>
+                آیکون قابل تغییر
             </div>
             <div class="feature-item">
                 <i class="fas fa-arrow-right-arrow-left"></i>
-                مقایسه
+                مقایسه مقادیر
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-sort-numeric-up-alt"></i>
+                نمایش اعداد منفی
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-th-large"></i>
+                جانمایی اجزای کارد
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-sort-numeric-down-alt"></i>
+                اعداد فارسی
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-tachometer-alt"></i>
+                عملکرد بالا (20ms)
             </div>
         </div>
 
@@ -418,10 +485,6 @@
                 <span>
                     <i class="fas fa-envelope"></i>
                     <a href="mailto:mohamadfekri@gmail.com">mohamadfekri@gmail.com</a>
-                </span>
-                <span class="phone">
-                    <i class="fas fa-phone"></i>
-                    تلفن همراه: —
                 </span>
             </div>
             <div class="socials">
