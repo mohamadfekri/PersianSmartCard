@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smart Card Pro - Power BI Visual</title>
 
-    <!-- ===== Favicon (آیکون بالای تب) ===== -->
+    <!-- ===== GoatCounter Analytics ===== -->
+    <script data-goatcounter="https://mohamadhoseinfekri.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+
+    <!-- ===== Favicon ===== -->
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="favicon.png" />
@@ -36,7 +40,7 @@
             padding: 24px;
         }
 
-        /* ===== Main Container - Microsoft Style ===== */
+        /* ===== Main Container ===== */
         .container {
             max-width: 1100px;
             width: 100%;
@@ -248,7 +252,7 @@
             color: #0078D4;
         }
 
-        /* ===== Info Grid (Data Roles) ===== */
+        /* ===== Info Grid ===== */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -475,9 +479,9 @@
 
         <!-- ===== Download ===== -->
         <div class="download-area">
-            <a href="persianSmartCardPro9F3A7C2E4B1D4E8FA6B2_VISUAL.1.0.0.0.pbiviz" class="btn-download" download>
+            <a href="persianSmartCardPro9F3A7C2E4B1D4E8FA6B2_VISUAL.1.0.0.0.pbiviz" class="btn-download" download id="downloadBtn">
                 <i class="fas fa-download"></i>
-                <span id="downloadBtn">Download .pbiviz</span>
+                <span id="downloadText">Download .pbiviz</span>
             </a>
             <div class="file-name">
                 <i class="far fa-file"></i>
@@ -527,7 +531,7 @@
                 <a href="https://github.com/mohamadfekri" target="_blank" title="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/mohamad-hosein-fekri/" target="_blank" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/mohamad-hosein-fekri" target="_blank" title="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
                 <a href="mailto:mohamadfekri@gmail.com" title="Email">
@@ -543,139 +547,167 @@
             <i class="fas fa-heart heart"></i>
         </div>
 
-    </div>
-
-    <script>
-        // ===== Language Data =====
-        const langData = {
-            en: {
-                badge: 'POWER BI CUSTOM VISUAL',
-                title: 'Smart Card Pro',
-                subtitle: 'Professional Smart Card for Power BI',
-                version: 'Version 1.0.0.0',
-                imgLabel1: '📸 Card View',
-                imgLabel2: '⚙️ Settings',
-                imgLabel3: '📊 Sample Usage',
-                imgLabel4: '🎯 Visual Icon',
-                features: [
-                    'Smart Unit Conversion',
-                    'Trend Indicator (📈📉➡️)',
-                    'Persian / English',
-                    'Full Customization',
-                    'Prefix / Suffix',
-                    'Customizable Icon',
-                    'Value Comparison',
-                    'Negative Number Display',
-                    'Card Layout',
-                    'Persian Numbers',
-                    'Conditional Formatting'
-                ],
-                downloadBtn: 'Download .pbiviz',
-                infoGrid: [
-                    { label: 'Data Role', value: 'Value', desc: 'Main value', type: 'required' },
-                    { label: 'Data Role', value: 'Comparison', desc: 'Comparison value', type: 'optional' },
-                    { label: 'Data Role', value: 'Tooltip', desc: 'Additional info', type: 'optional' }
-                ],
-                credit: 'Built with ❤️ for the Power BI Community'
-            },
-            fa: {
-                badge: 'ویژوال سفارشی پاور بی آی',
-                title: 'اسمارت کارت پرو',
-                subtitle: 'کارت هوشمند حرفه‌ای برای پاور بی آی',
-                version: 'نسخه 1.0.0.0',
-                imgLabel1: '📸 نمای کارت',
-                imgLabel2: '⚙️ تنظیمات',
-                imgLabel3: '📊 نمونه استفاده',
-                imgLabel4: '🎯 آیکون ویژوال',
-                features: [
-                    'تبدیل هوشمند واحد',
-                    'نمایش روند (📈📉➡️)',
-                    'فارسی / انگلیسی',
-                    'شخصی‌سازی کامل',
-                    'پیشوند / پسوند',
-                    'آیکون قابل تغییر',
-                    'مقایسه مقادیر',
-                    'نمایش اعداد منفی',
-                    'جانمایی کارد',
-                    'اعداد فارسی',
-                    'قالب‌بندی شرطی'
-                ],
-                downloadBtn: 'دانلود فایل .pbiviz',
-                infoGrid: [
-                    { label: 'نقش داده', value: 'مقدار اصلی', desc: 'مقدار اصلی', type: 'required' },
-                    { label: 'نقش داده', value: 'مقدار مقایسه', desc: 'مقدار برای مقایسه', type: 'optional' },
-                    { label: 'نقش داده', value: 'راهنما', desc: 'اطلاعات اضافی', type: 'optional' }
-                ],
-                credit: 'ساخته شده با ❤️ برای جامعه پاور بی آی'
-            }
-        };
-
-        let currentLang = 'en';
-
-        // ===== Set Language =====
-        function setLanguage(lang) {
-            currentLang = lang;
-            const data = langData[lang];
-
-            document.getElementById('badgeText').textContent = data.badge;
-            document.getElementById('title').textContent = data.title;
-            document.getElementById('subtitle').textContent = data.subtitle;
-            document.getElementById('version').textContent = data.version;
-
-            document.getElementById('imgLabel1').textContent = data.imgLabel1;
-            document.getElementById('imgLabel2').textContent = data.imgLabel2;
-            document.getElementById('imgLabel3').textContent = data.imgLabel3;
-            document.getElementById('imgLabel4').textContent = data.imgLabel4;
-
-            const featureItems = document.querySelectorAll('#featuresContainer .feature-item span');
-            data.features.forEach((text, index) => {
-                if (featureItems[index]) {
-                    featureItems[index].textContent = text;
+        <!-- ===== GoatCounter Tracking for Download ===== -->
+        <script>
+            // Track download clicks with GoatCounter
+            document.getElementById('downloadBtn').addEventListener('click', function(e) {
+                // GoatCounter will automatically track the page view
+                // For custom events, we can use a simple approach
+                if (window.goatcounter) {
+                    // Send a custom event for download
+                    fetch('https://mohamadhoseinfekri.goatcounter.com/count', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            event: 'download',
+                            path: '/download/persianSmartCardPro.pbiviz',
+                            title: 'Download Smart Card Pro'
+                        })
+                    }).catch(function(err) {
+                        console.log('Download tracking:', err);
+                    });
                 }
             });
 
-            document.getElementById('downloadBtn').textContent = data.downloadBtn;
+            // Track page view with GoatCounter (already done by the script)
+            console.log('GoatCounter tracking enabled for: https://mohamadhoseinfekri.goatcounter.com');
+        </script>
 
-            const infoCards = document.querySelectorAll('#infoGrid .info-card');
-            data.infoGrid.forEach((item, index) => {
-                if (infoCards[index]) {
-                    const card = infoCards[index];
-                    card.querySelector('.label').textContent = item.label;
-                    card.querySelector('.value').textContent = item.value;
-                    card.querySelector('.desc').textContent = item.desc;
-                    const badgeEl = card.querySelector('.required, .optional');
-                    if (badgeEl) {
-                        if (item.type === 'required') {
-                            badgeEl.className = 'required';
-                            badgeEl.innerHTML = '<i class="fas fa-star"></i> ' + (lang === 'en' ? 'Required' : 'اجباری');
-                        } else {
-                            badgeEl.className = 'optional';
-                            badgeEl.innerHTML = '<i class="fas fa-circle"></i> ' + (lang === 'en' ? 'Optional' : 'اختیاری');
+        <!-- ===== Language Script ===== -->
+        <script>
+            // ===== Language Data =====
+            const langData = {
+                en: {
+                    badge: 'POWER BI CUSTOM VISUAL',
+                    title: 'Smart Card Pro',
+                    subtitle: 'Professional Smart Card for Power BI',
+                    version: 'Version 1.0.0.0',
+                    imgLabel1: '📸 Card View',
+                    imgLabel2: '⚙️ Settings',
+                    imgLabel3: '📊 Sample Usage',
+                    imgLabel4: '🎯 Visual Icon',
+                    features: [
+                        'Smart Unit Conversion',
+                        'Trend Indicator (📈📉➡️)',
+                        'Persian / English',
+                        'Full Customization',
+                        'Prefix / Suffix',
+                        'Customizable Icon',
+                        'Value Comparison',
+                        'Negative Number Display',
+                        'Card Layout',
+                        'Persian Numbers',
+                        'Conditional Formatting'
+                    ],
+                    downloadText: 'Download .pbiviz',
+                    infoGrid: [
+                        { label: 'Data Role', value: 'Value', desc: 'Main value', type: 'required' },
+                        { label: 'Data Role', value: 'Comparison', desc: 'Comparison value', type: 'optional' },
+                        { label: 'Data Role', value: 'Tooltip', desc: 'Additional info', type: 'optional' }
+                    ],
+                    credit: 'Built with ❤️ for the Power BI Community'
+                },
+                fa: {
+                    badge: 'ویژوال سفارشی پاور بی آی',
+                    title: 'اسمارت کارت پرو',
+                    subtitle: 'کارت هوشمند حرفه‌ای برای پاور بی آی',
+                    version: 'نسخه 1.0.0.0',
+                    imgLabel1: '📸 نمای کارت',
+                    imgLabel2: '⚙️ تنظیمات',
+                    imgLabel3: '📊 نمونه استفاده',
+                    imgLabel4: '🎯 آیکون ویژوال',
+                    features: [
+                        'تبدیل هوشمند واحد',
+                        'نمایش روند (📈📉➡️)',
+                        'فارسی / انگلیسی',
+                        'شخصی‌سازی کامل',
+                        'پیشوند / پسوند',
+                        'آیکون قابل تغییر',
+                        'مقایسه مقادیر',
+                        'نمایش اعداد منفی',
+                        'جانمایی کارد',
+                        'اعداد فارسی',
+                        'قالب‌بندی شرطی'
+                    ],
+                    downloadText: 'دانلود فایل .pbiviz',
+                    infoGrid: [
+                        { label: 'نقش داده', value: 'مقدار اصلی', desc: 'مقدار اصلی', type: 'required' },
+                        { label: 'نقش داده', value: 'مقدار مقایسه', desc: 'مقدار برای مقایسه', type: 'optional' },
+                        { label: 'نقش داده', value: 'راهنما', desc: 'اطلاعات اضافی', type: 'optional' }
+                    ],
+                    credit: 'ساخته شده با ❤️ برای جامعه پاور بی آی'
+                }
+            };
+
+            let currentLang = 'en';
+
+            function setLanguage(lang) {
+                currentLang = lang;
+                const data = langData[lang];
+
+                document.getElementById('badgeText').textContent = data.badge;
+                document.getElementById('title').textContent = data.title;
+                document.getElementById('subtitle').textContent = data.subtitle;
+                document.getElementById('version').textContent = data.version;
+
+                document.getElementById('imgLabel1').textContent = data.imgLabel1;
+                document.getElementById('imgLabel2').textContent = data.imgLabel2;
+                document.getElementById('imgLabel3').textContent = data.imgLabel3;
+                document.getElementById('imgLabel4').textContent = data.imgLabel4;
+
+                const featureItems = document.querySelectorAll('#featuresContainer .feature-item span');
+                data.features.forEach((text, index) => {
+                    if (featureItems[index]) {
+                        featureItems[index].textContent = text;
+                    }
+                });
+
+                document.getElementById('downloadText').textContent = data.downloadText;
+
+                const infoCards = document.querySelectorAll('#infoGrid .info-card');
+                data.infoGrid.forEach((item, index) => {
+                    if (infoCards[index]) {
+                        const card = infoCards[index];
+                        card.querySelector('.label').textContent = item.label;
+                        card.querySelector('.value').textContent = item.value;
+                        card.querySelector('.desc').textContent = item.desc;
+                        const badgeEl = card.querySelector('.required, .optional');
+                        if (badgeEl) {
+                            if (item.type === 'required') {
+                                badgeEl.className = 'required';
+                                badgeEl.innerHTML = '<i class="fas fa-star"></i> ' + (lang === 'en' ? 'Required' : 'اجباری');
+                            } else {
+                                badgeEl.className = 'optional';
+                                badgeEl.innerHTML = '<i class="fas fa-circle"></i> ' + (lang === 'en' ? 'Optional' : 'اختیاری');
+                            }
                         }
                     }
+                });
+
+                document.getElementById('creditText').textContent = data.credit;
+
+                document.getElementById('langEn').className = lang === 'en' ? 'active' : '';
+                document.getElementById('langFa').className = lang === 'fa' ? 'active' : '';
+
+                const container = document.getElementById('app');
+                if (lang === 'fa') {
+                    container.classList.add('rtl');
+                    document.documentElement.lang = 'fa';
+                    document.documentElement.dir = 'rtl';
+                } else {
+                    container.classList.remove('rtl');
+                    document.documentElement.lang = 'en';
+                    document.documentElement.dir = 'ltr';
                 }
-            });
-
-            document.getElementById('creditText').textContent = data.credit;
-
-            document.getElementById('langEn').className = lang === 'en' ? 'active' : '';
-            document.getElementById('langFa').className = lang === 'fa' ? 'active' : '';
-
-            const container = document.getElementById('app');
-            if (lang === 'fa') {
-                container.classList.add('rtl');
-                document.documentElement.lang = 'fa';
-                document.documentElement.dir = 'rtl';
-            } else {
-                container.classList.remove('rtl');
-                document.documentElement.lang = 'en';
-                document.documentElement.dir = 'ltr';
             }
-        }
 
-        // ===== Set initial language (English by default) =====
-        setLanguage('en');
-    </script>
+            // Set initial language (English by default)
+            setLanguage('en');
+        </script>
+
+    </div>
 
 </body>
 </html>
