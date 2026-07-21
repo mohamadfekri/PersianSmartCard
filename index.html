@@ -1,306 +1,377 @@
-﻿!DOCTYPE html
-html lang=fa dir=rtl
-head
-    meta charset=UTF-8 
-    meta name=viewport content=width=device-width, initial-scale=1.0 
-    titleSmart Card Pro for Power BItitle
-    !-- Font Awesome for icons --
-    link rel=stylesheet href=httpscdnjs.cloudflare.comajaxlibsfont-awesome6.5.0cssall.min.css 
-    style
-         {
-            margin 0;
-            padding 0;
-            box-sizing border-box;
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Card Pro - Power BI Visual</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height 100vh;
-            display flex;
-            justify-content center;
-            align-items center;
-            padding 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            direction: rtl;
         }
 
-        .card {
-            max-width 800px;
-            width 100%;
-            background white;
-            border-radius 24px;
-            padding 48px 40px;
-            box-shadow 0 20px 60px rgba(0, 0, 0, 0.15);
-            text-align center;
-            transition transform 0.3s ease;
+        /* Main Card */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 50px 45px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
+            transition: transform 0.25s ease;
         }
 
-        .cardhover {
-            transform translateY(-4px);
+        .container:hover {
+            transform: translateY(-6px);
         }
 
+        /* Badge */
         .badge {
-            display inline-block;
-            background #0078D4;
-            color white;
-            padding 6px 18px;
-            border-radius 20px;
-            font-size 12px;
-            font-weight 600;
-            letter-spacing 0.5px;
-            margin-bottom 20px;
-            text-transform uppercase;
+            display: inline-block;
+            background: #0078D4;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            padding: 6px 22px;
+            border-radius: 30px;
+            margin-bottom: 18px;
+            text-transform: uppercase;
         }
 
-        h1 {
-            font-size 36px;
-            font-weight 700;
-            color #1a1a2e;
-            margin-bottom 8px;
+        .badge i {
+            margin-left: 6px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+
+        .header h1 {
+            font-size: 38px;
+            font-weight: 800;
+            color: #1a1a2e;
+            letter-spacing: -0.5px;
+        }
+
+        .header .icon-big {
+            font-size: 42px;
         }
 
         .subtitle {
-            font-size 18px;
-            color #555;
-            margin-bottom 8px;
-            font-weight 400;
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 4px;
+            font-weight: 400;
         }
 
         .version {
-            font-size 14px;
-            color #888;
-            margin-bottom 30px;
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 28px;
         }
 
+        /* Features Grid */
         .features {
-            display grid;
-            grid-template-columns repeat(auto-fit, minmax(140px, 1fr));
-            gap 16px;
-            margin 30px 0;
-            text-align center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 14px;
+            margin: 30px 0 32px;
         }
 
         .feature-item {
-            background #f8f9fc;
-            padding 16px 10px;
-            border-radius 12px;
-            font-size 13px;
-            font-weight 500;
-            color #1a1a2e;
-            transition background 0.2s;
+            background: #f4f6fb;
+            padding: 18px 12px;
+            border-radius: 14px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 14px;
+            color: #1a1a2e;
+            transition: background 0.2s;
         }
 
-        .feature-itemhover {
-            background #eef2f7;
+        .feature-item:hover {
+            background: #e8ecf5;
         }
 
         .feature-item i {
-            display block;
-            font-size 24px;
-            margin-bottom 6px;
-            color #0078D4;
+            display: block;
+            font-size: 26px;
+            margin-bottom: 8px;
+            color: #0078D4;
         }
 
-        .download-section {
-            margin 30px 0 20px;
+        /* Download */
+        .download-area {
+            background: #f8faff;
+            border-radius: 18px;
+            padding: 28px 24px;
+            margin: 28px 0 20px;
+            border: 1px dashed #c5d4e8;
+            text-align: center;
         }
 
         .btn-download {
-            display inline-flex;
-            align-items center;
-            gap 12px;
-            background #0078D4;
-            color white;
-            padding 16px 40px;
-            border-radius 50px;
-            font-size 18px;
-            font-weight 600;
-            text-decoration none;
-            transition background 0.3s, transform 0.2s;
-            border none;
-            cursor pointer;
-            box-shadow 0 8px 24px rgba(0, 120, 212, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            background: #0078D4;
+            color: #fff;
+            padding: 18px 48px;
+            border-radius: 60px;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 8px 28px rgba(0, 120, 212, 0.30);
+            transition: background 0.25s, transform 0.2s;
+            border: none;
+            cursor: pointer;
         }
 
-        .btn-downloadhover {
-            background #005a9e;
-            transform scale(1.02);
+        .btn-download:hover {
+            background: #005a9e;
+            transform: scale(1.02);
         }
 
         .btn-download i {
-            font-size 22px;
+            font-size: 26px;
         }
 
         .file-name {
-            font-size 13px;
-            color #777;
-            margin-top 10px;
-            word-break break-all;
-            background #f5f5f5;
-            padding 8px 16px;
-            border-radius 8px;
-            display inline-block;
+            font-size: 13px;
+            color: #666;
+            background: #fff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-top: 14px;
+            display: inline-block;
+            border: 1px solid #e6edf5;
+            word-break: break-all;
+            max-width: 100%;
+            direction: ltr;
         }
 
-        .divider {
-            border none;
-            border-top 1px solid #e0e0e0;
-            margin 30px 0;
+        .file-name i {
+            margin-left: 8px;
+            color: #0078D4;
         }
 
+        /* Info Grid */
         .info-grid {
-            display grid;
-            grid-template-columns repeat(auto-fit, minmax(180px, 1fr));
-            gap 16px;
-            text-align right;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin: 28px 0 10px;
         }
 
-        .info-item {
-            background #fafafa;
-            padding 12px 16px;
-            border-radius 10px;
+        .info-card {
+            background: #f9fafc;
+            padding: 16px 18px;
+            border-radius: 14px;
+            border-right: 4px solid #0078D4;
         }
 
-        .info-item .label {
-            font-size 12px;
-            color #888;
-            text-transform uppercase;
-            letter-spacing 0.5px;
+        .info-card .label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
         }
 
-        .info-item .value {
-            font-size 15px;
-            font-weight 600;
-            color #1a1a2e;
-            margin-top 2px;
+        .info-card .value {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-top: 4px;
         }
 
+        .info-card .desc {
+            font-size: 13px;
+            color: #777;
+            margin-top: 2px;
+        }
+
+        /* Footer */
         .footer {
-            margin-top 30px;
-            font-size 14px;
-            color #888;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eaeef4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 14px;
+            color: #777;
         }
 
         .footer a {
-            color #0078D4;
-            text-decoration none;
+            color: #0078D4;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0 4px;
         }
 
-        .footer ahover {
-            text-decoration underline;
+        .footer a:hover {
+            text-decoration: underline;
         }
 
-        @media (max-width 600px) {
-            .card {
-                padding 30px 20px;
+        .footer .socials i {
+            font-size: 18px;
+            margin: 0 4px;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .container {
+                padding: 30px 18px;
             }
-            h1 {
-                font-size 26px;
+            .header h1 {
+                font-size: 28px;
+            }
+            .header .icon-big {
+                font-size: 32px;
             }
             .btn-download {
-                padding 14px 28px;
-                font-size 16px;
+                padding: 14px 28px;
+                font-size: 17px;
             }
             .features {
-                grid-template-columns repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer {
+                flex-direction: column;
+                text-align: center;
             }
         }
-    style
-head
-body
+    </style>
+</head>
+<body>
 
-    div class=card
+<div class="container">
 
-        !-- Badge --
-        div class=badge
-            i class=fas fa-check-circle style=margin-left 6px;i
-            Power BI Custom Visual
-        div
+    <!-- Badge -->
+    <div class="badge">
+        <i class="fas fa-check-circle"></i> Power BI Custom Visual
+    </div>
 
-        !-- Title --
-        h1📊 Smart Card Proh1
-        p class=subtitleحرفه‌ای‌ترین کارت هوشمند برای Power BIp
-        p class=versionنسخه 1.0.0.0p
+    <!-- Header -->
+    <div class="header">
+        <span class="icon-big">📊</span>
+        <h1>Smart Card Pro</h1>
+    </div>
+    <p class="subtitle">حرفه‌ای‌ترین کارت هوشمند برای Power BI</p>
+    <p class="version">نسخه 1.0.0.0</p>
 
-        !-- Features --
-        div class=features
-            div class=feature-item
-                i class=fas fa-bolti
-                فقط یک Measure
-            div
-            div class=feature-item
-                i class=fas fa-arrows-left-righti
-                تبدیل هوشمند واحد
-            div
-            div class=feature-item
-                i class=fas fa-chart-linei
-                نمایش روند (📈📉➡️)
-            div
-            div class=feature-item
-                i class=fas fa-languagei
-                فارسی  انگلیسی
-            div
-            div class=feature-item
-                i class=fas fa-palettei
-                شخصی‌سازی کامل
-            div
-            div class=feature-item
-                i class=fas fa-rocketi
-                عملکرد بالا (&lt;20ms)
-            div
-        div
+    <!-- Features -->
+    <div class="features">
+        <div class="feature-item">
+            <i class="fas fa-bolt"></i>
+            فقط یک Measure
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-arrows-left-right"></i>
+            تبدیل هوشمند واحد
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-chart-line"></i>
+            نمایش روند (📈📉➡️)
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-language"></i>
+            فارسی / انگلیسی
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-palette"></i>
+            شخصی‌سازی کامل
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-rocket"></i>
+            عملکرد بالا (&lt;20ms)
+        </div>
+    </div>
 
-        !-- Download --
-        div class=download-section
-            a href=persianSmartCardPro9F3A7C2E4B1D4E8FA6B2_VISUAL.1.0.0.0.pbiviz class=btn-download download
-                i class=fas fa-downloadi
-                دانلود فایل .pbiviz
-            a
-            div class=file-name
-                i class=far fa-filei
-                persianSmartCardPro9F3A7C2E4B1D4E8FA6B2_VISUAL.1.0.0.0.pbiviz
-            div
-        div
+    <!-- Download -->
+    <div class="download-area">
+        <a href="persianSmartCardPro9F3A7C2E4B1D4E8FA6B2_VISUAL.1.0.0.0.pbiviz" class="btn-download" download>
+            <i class="fas fa-download"></i>
+            دانلود فایل .pbiviz
+        </a>
+        <div class="file-name">
+            <i class="far fa-file"></i>
+            persianSmartCardPro9F3A7C2E4B1D4E8FA6B2_VISUAL.1.0.0.0.pbiviz
+        </div>
+    </div>
 
-        hr class=divider 
+    <!-- Info Grid -->
+    <div class="info-grid">
+        <div class="info-card">
+            <div class="label">نقش داده</div>
+            <div class="value">Value</div>
+            <div class="desc">اجباری • مقدار اصلی</div>
+        </div>
+        <div class="info-card">
+            <div class="label">نقش داده</div>
+            <div class="value">Comparison</div>
+            <div class="desc">اختیاری • مقدار مقایسه</div>
+        </div>
+        <div class="info-card">
+            <div class="label">نقش داده</div>
+            <div class="value">Tooltip</div>
+            <div class="desc">اختیاری • اطلاعات اضافی</div>
+        </div>
+    </div>
 
-        !-- Info --
-        div class=info-grid
-            div class=info-item
-                div class=labelنقش دادهdiv
-                div class=valueValue (اجباری)div
-                div style=font-size13px;color#888;مقدار اصلیdiv
-            div
-            div class=info-item
-                div class=labelنقش دادهdiv
-                div class=valueComparison (اختیاری)div
-                div style=font-size13px;color#888;مقدار مقایسه برای روندdiv
-            div
-            div class=info-item
-                div class=labelنقش دادهdiv
-                div class=valueTooltip (اختیاری)div
-                div style=font-size13px;color#888;اطلاعات اضافیdiv
-            div
-        div
+    <!-- Footer -->
+    <div class="footer">
+        <div>
+            <span>توسعه‌دهنده:</span>
+            <a href="https://github.com/mohamadfekri" target="_blank">
+                <i class="fab fa-github"></i> Mohamad Fekri
+            </a>
+            <span>•</span>
+            <a href="mailto:mohamadfekri@gmail.com">
+                <i class="fas fa-envelope"></i> mohamadfekri@gmail.com
+            </a>
+        </div>
+        <div class="socials">
+            <a href="https://github.com/mohamadfekri/PersianSmartCardPro" target="_blank" title="GitHub Repository">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/mohamadfekri" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:mohamadfekri@gmail.com" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </div>
 
-        hr class=divider 
+    <div style="text-align:center;margin-top:16px;font-size:12px;color:#bbb;">
+        <i class="fas fa-code"></i> ساخته شده با ❤️ برای جامعه Power BI
+    </div>
 
-        !-- Developer --
-        div class=footer
-            توسعه‌دهنده
-            a href=httpsgithub.commohamadfekri target=_blank
-                i class=fab fa-githubi Mohamad Fekri
-            a
-            &nbsp;•&nbsp;
-            a href=mailtomohamadfekri@gmail.com
-                i class=fas fa-envelopei mohamadfekri@gmail.com
-            a
-            br 
-            span style=font-size12px;color#aaa;margin-top6px;displayinline-block;
-                i class=fas fa-codei ساخته شده با ❤️ برای جامعه Power BI
-            span
-        div
+</div>
 
-    div
-
-body
-html
+</body>
+</html>
